@@ -1,13 +1,13 @@
 ﻿  MainPrueba.cpp
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(189,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(158,38): warning C4101: 'nrChannels': variable local sin referencia
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(158,9): warning C4101: 'textureWidth': variable local sin referencia
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(160,20): warning C4101: 'image': variable local sin referencia
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(158,23): warning C4101: 'textureHeight': variable local sin referencia
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(304,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(305,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(309,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(310,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(312,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(313,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(197,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(166,38): warning C4101: 'nrChannels': variable local sin referencia
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(166,9): warning C4101: 'textureWidth': variable local sin referencia
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(168,20): warning C4101: 'image': variable local sin referencia
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(166,23): warning C4101: 'textureHeight': variable local sin referencia
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(384,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(385,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(389,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(390,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(392,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(393,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
   ProyectoFinal.vcxproj -> C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\Debug\ProyectoFinal.exe

@@ -148,8 +148,16 @@ int main()
     // Load textures
     //Model pokeArriba((char*)"Models/Pokeball/pokearriba.obj");
     //Model pokeAbajo((char*)"Models/Pokeball/pokeabajo.obj");
-    Model objetoProyecto((char*)"Models/reproductor/reproductor.obj");
-
+    //Model objetoProyecto((char*)"Models/reproductor/reproductor.obj");
+    Model casa((char*)"Models/casa/casa.obj");
+    Model alfombra1((char*)"Models/alfombra1/alfombra1.obj");
+    Model alfombra2((char*)"Models/alfombra2/alfombra2.obj");
+    Model lampara((char*)"Models/lampara/lampara.obj");
+    Model cama((char*)"Models/cama/cama.obj");
+    Model reproductor((char*)"Models/reproductor/reproductor.obj");
+    Model bajo((char*)"Models/MarcelineBass/MarcelineBass.obj");
+    Model sillon((char*)"Models/sillon/sillon.obj");
+    Model tele((char*)"Models/tele/tele.obj");
 
 
     GLuint texture;
@@ -210,10 +218,82 @@ int main()
         //glDrawElements(GL_TRIANGLES, 6, GL_FLAT, 0);
         //Pizza.Draw(shader);
 
+        //Casa
         model = glm::mat4(1);
         model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        objetoProyecto.Draw(shader);
+        casa.Draw(shader);
+
+        //Alfombra1
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(13.824f, 6.283f, -5.119f));
+        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.313f, 0.313f, 0.265f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        alfombra1.Draw(shader);
+
+        //Alfombra 2
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(11.515f, 6.283f, -5.838f));
+        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.431f, 0.431f, 0.44f));
+        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        alfombra2.Draw(shader);
+
+        //Lampara
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(14.282f, 6.192f, -5.717f));
+        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.181f, 0.181f, 0.181f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        lampara.Draw(shader);
+
+        //cama
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(14.041f, 6.283f, -6.364f));
+        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.197f, 0.197f, 0.197f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        cama.Draw(shader);
+        
+        //reproductor
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(14.26f, 6.283f, -6.948f));
+        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.186f, 0.186f, 0.186f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        reproductor.Draw(shader);
+
+        //bajo
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(12.726f, 6.283f, -7.291f));
+        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.083f, 0.083f, 0.083f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        bajo.Draw(shader);
+
+
+        //sillon
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(11.521f, 6.283f, -5.118f));
+        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.409f, 0.409f, 0.409f));
+        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        sillon.Draw(shader);
+
+        //tele
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(11.904f, 6.223f, -6.424f));
+        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.233f, 0.233f, 0.233f));
+        model = glm::rotate(model, glm::radians(-128.43f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        tele.Draw(shader);
 
         glBindVertexArray(0);
 
