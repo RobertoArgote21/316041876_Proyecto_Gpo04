@@ -44,6 +44,13 @@ GLfloat lastFrame = 0.0f;
 float rot = 0.0f;
 bool esta_abajo = true;
 bool rotar = false;
+float posicionBajo= 6.353f;
+bool animBajo = false;
+bool sentido = false;
+
+bool sentidoPuerta = true;
+float abrePuerta = 0.0f;
+bool animPuerta = false;
 
 int main()
 {
@@ -150,6 +157,7 @@ int main()
     //Model pokeAbajo((char*)"Models/Pokeball/pokeabajo.obj");
     //Model objetoProyecto((char*)"Models/reproductor/reproductor.obj");
     Model casa((char*)"Models/casa/casa.obj");
+    Model puerta((char*)"Models/casa/puerta.obj");
     Model alfombra1((char*)"Models/alfombra1/alfombra1.obj");
     Model alfombra2((char*)"Models/alfombra2/alfombra2.obj");
     Model lampara((char*)"Models/lampara/lampara.obj");
@@ -229,6 +237,36 @@ int main()
         model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         casa.Draw(shader);
+        
+        //Puerta 3.926   2.727     -6.871
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(4.1f, 2.754f, -6.894f));
+        model = glm::rotate(model, glm::radians(abrePuerta), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        puerta.Draw(shader);
+
+        if (animPuerta) {
+            if (sentidoPuerta) {//Se tiene que abrir la puerta
+                if (abrePuerta < 80.0) {
+                    abrePuerta += 0.5;
+                }
+                if (abrePuerta >= 80.0) {
+                    sentidoPuerta = false;
+                    animPuerta = false;
+                }
+            }
+            else { //Se tiene que cerrar la puerta
+                if (abrePuerta > 0.0) {
+                    abrePuerta -= 0.5;
+                }
+                if (abrePuerta <= 0.0) {
+                    sentidoPuerta = true;
+                    animPuerta = false;
+                }
+            }
+        }
+
+
 
         //Alfombra1
         model = glm::mat4(1);
@@ -258,7 +296,7 @@ int main()
         //cama
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(14.041f, 6.283f, -6.364f));
-        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
+        model = glm::translate(model, glm::vec3(-12.7f, 0.07f, 0.0f));
         model = glm::scale(model, glm::vec3(0.197f, 0.197f, 0.197f));
         model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -267,7 +305,7 @@ int main()
         //reproductor
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(14.26f, 6.283f, -6.948f));
-        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
+        model = glm::translate(model, glm::vec3(-12.7f, 0.06f, 0.0f));
         model = glm::scale(model, glm::vec3(0.186f, 0.186f, 0.186f));
         model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -275,12 +313,29 @@ int main()
 
         //bajo
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(12.726f, 6.283f, -7.291f));
-        model = glm::translate(model, glm::vec3(-12.7f, 0.07f, 0.0f));
+        model = glm::translate(model, glm::vec3(0.026f, posicionBajo, -7.291f));
+        //model = glm::translate(model, glm::vec3(-12.7f, 0.07f, 0.0f));
         model = glm::scale(model, glm::vec3(0.083f, 0.083f, 0.083f));
         model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         bajo.Draw(shader);
+        //6.283
+        //animacion bajo
+        
+        if (animBajo) {
+            if (posicionBajo >= 6.5) {
+                sentido = false;
+            }
+            if (posicionBajo < 6.353) {
+                sentido = true;
+            }
+            if (sentido) {
+                posicionBajo += 0.001f;
+            }
+            else
+                posicionBajo -= 0.001f;
+
+        }
 
 
         //sillon
@@ -412,6 +467,12 @@ void DoMovement()
 // Is called whenever a key is pressed/released via GLFW
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
+    if (keys[GLFW_KEY_B]) {
+        animBajo = !animBajo;
+    }
+    if (keys[GLFW_KEY_P]) {
+        animPuerta = !animPuerta;
+    }
     if (GLFW_KEY_ESCAPE == key && GLFW_PRESS == action)
     {
         glfwSetWindowShouldClose(window, GL_TRUE);
