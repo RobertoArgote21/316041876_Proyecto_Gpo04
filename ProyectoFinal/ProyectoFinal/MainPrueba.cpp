@@ -158,6 +158,12 @@ int main()
     Model bajo((char*)"Models/MarcelineBass/MarcelineBass.obj");
     Model sillon((char*)"Models/sillon/sillon.obj");
     Model tele((char*)"Models/tele/tele.obj");
+    Model cuadro((char*)"Models/casa/2DOCUARTO/cuadro.obj");
+    Model escalera((char*)"Models/casa/2DOCUARTO/escalera.obj");
+    Model lampara_2((char*)"Models/casa/2DOCUARTO/lampara_2.obj");
+    Model vela((char*)"Models/casa/2DOCUARTO/vela.obj");
+    Model vela2((char*)"Models/casa/2DOCUARTO/vela.obj");
+    Model sillon2((char*)"Models/casa/2DOCUARTO/sillon.obj");
 
 
     GLuint texture;
@@ -270,7 +276,7 @@ int main()
         //bajo
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(12.726f, 6.283f, -7.291f));
-        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
+        model = glm::translate(model, glm::vec3(-12.7f, 0.07f, 0.0f));
         model = glm::scale(model, glm::vec3(0.083f, 0.083f, 0.083f));
         model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -286,6 +292,7 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         sillon.Draw(shader);
 
+
         //tele
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(11.904f, 6.223f, -6.424f));
@@ -294,6 +301,56 @@ int main()
         model = glm::rotate(model, glm::radians(-128.43f), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         tele.Draw(shader);
+
+        //cuadro
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-1.182f, 1.72f, -10.159f));
+        model = glm::scale(model, glm::vec3(0.389f, 0.389f, 0.389f));
+        model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        cuadro.Draw(shader);
+
+        //escalera
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-3.221f, 1.267f, -1.209f));
+        model = glm::scale(model, glm::vec3(0.39f, 0.358f, 0.39f));
+        //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        escalera.Draw(shader);
+
+        //vela
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(0.0f, 2.841f, -10.636f));
+        model = glm::scale(model, glm::vec3(0.115f, 0.115f, 0.115f));
+        //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        vela.Draw(shader);
+
+        //vela2
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(1.244f, 2.841f, -10.636f));
+        model = glm::scale(model, glm::vec3(0.115f, 0.115f, 0.115f));
+        //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        vela2.Draw(shader);
+
+
+        //sillon
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(3.0f, 1.148f, -4.825f));
+        model = glm::scale(model, glm::vec3(0.433f, 0.433f, 0.433f));
+        model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        sillon2.Draw(shader);
+
+        //lampaara2
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(0.0f, -0.276f, -7.475f));
+        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        lampara_2.Draw(shader);
+
 
         glBindVertexArray(0);
 
