@@ -52,6 +52,10 @@ bool sentidoPuerta = true;
 float abrePuerta = 0.0f;
 bool animPuerta = false;
 
+
+bool animRueda = false;
+float rotacionRueda = 0.0f;
+
 int main()
 {
     // Init GLFW
@@ -172,6 +176,7 @@ int main()
     Model vela((char*)"Models/casa/2DOCUARTO/vela.obj");
     Model vela2((char*)"Models/casa/2DOCUARTO/vela.obj");
     Model sillon2((char*)"Models/casa/2DOCUARTO/sillon.obj");
+    Model rueda((char*)"Models/reproductor/rueda.obj");
 
 
     GLuint texture;
@@ -311,6 +316,35 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         reproductor.Draw(shader);
 
+        //rueda
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(1.51f, 6.83f, -7.141f));
+        //model = glm::translate(model, glm::vec3(-12.7f, 0.06f, 0.0f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::rotate(model, glm::radians(-30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+        model = glm::rotate(model, glm::radians(rotacionRueda), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.195f, 0.195f, 0.195f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        rueda.Draw(shader);
+
+        //rueda2
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(1.63f, 6.83f, -7.141f));
+        //model = glm::translate(model, glm::vec3(-12.7f, 0.06f, 0.0f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::rotate(model, glm::radians(-30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+        model = glm::rotate(model, glm::radians(rotacionRueda), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.195f, 0.195f, 0.195f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        rueda.Draw(shader);
+
+        if(animRueda) {
+            rotacionRueda = float(glfwGetTime() * 35.0f);
+        }
+        else {
+            rotacionRueda = rotacionRueda;
+        }
+
         //bajo
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(0.026f, posicionBajo, -7.291f));
@@ -330,10 +364,10 @@ int main()
                 sentido = true;
             }
             if (sentido) {
-                posicionBajo += 0.001f;
+                posicionBajo += 0.0005f;
             }
             else
-                posicionBajo -= 0.001f;
+                posicionBajo -= 0.0005f;
 
         }
 
@@ -467,6 +501,9 @@ void DoMovement()
 // Is called whenever a key is pressed/released via GLFW
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
+    if (keys[GLFW_KEY_R]) {
+        animRueda = !animRueda;
+    }
     if (keys[GLFW_KEY_B]) {
         animBajo = !animBajo;
     }
