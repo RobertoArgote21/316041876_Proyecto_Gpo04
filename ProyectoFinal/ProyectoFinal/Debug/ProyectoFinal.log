@@ -1,13 +1,20 @@
 ﻿  MainPrueba.cpp
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(216,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(185,38): warning C4101: 'nrChannels': variable local sin referencia
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(185,9): warning C4101: 'textureWidth': variable local sin referencia
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(187,20): warning C4101: 'image': variable local sin referencia
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(185,23): warning C4101: 'textureHeight': variable local sin referencia
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(539,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(540,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(544,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(545,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(547,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(548,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(246,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(215,38): warning C4101: 'nrChannels': variable local sin referencia
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(215,9): warning C4101: 'textureWidth': variable local sin referencia
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(217,20): warning C4101: 'image': variable local sin referencia
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(215,23): warning C4101: 'textureHeight': variable local sin referencia
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(569,35): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(577,35): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(578,33): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(587,35): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(600,36): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(602,29): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(610,32): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(672,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(673,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(677,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(678,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(680,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(681,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
   ProyectoFinal.vcxproj -> C:\Users\xxrca\OneDrive\Escritorio\universidad\Repositorio\316041876_Proyecto_Gpo04\ProyectoFinal\Debug\ProyectoFinal.exe

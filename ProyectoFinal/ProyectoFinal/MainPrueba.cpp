@@ -31,6 +31,12 @@ int SCREEN_WIDTH, SCREEN_HEIGHT;
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void MouseCallback(GLFWwindow* window, double xPos, double yPos);
 void DoMovement();
+void animacionBajo();
+void animacionPuerta();
+void animacionReproductor();
+void animacionMarceline();
+void animacionArania();
+
 
 
 // Camera
@@ -42,7 +48,7 @@ bool firstMouse = true;
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
 float rot = 0.0f;
-bool esta_abajo = true;
+//bool esta_abajo = true;
 bool rotar = false;
 float posicionBajo= 6.353f;
 bool animBajo = false;
@@ -55,6 +61,27 @@ bool animPuerta = false;
 
 bool animRueda = false;
 float rotacionRueda = 0.0f;
+
+
+bool animMarceline = false;
+float posxmarceline = 7.9f;
+float posymarceline = 0.78f;
+float poszmarceline = -12.164f;
+float rotmarceline = -90.0f;
+bool recorridoMar1 = true;
+bool recorridoMar2 = false;
+bool recorridoMar3 = false;
+bool recorridoMar4 = false;
+
+
+bool animArania = false;
+float posxarania = 1.19f;
+float posyarania = 7.0f;
+float poszarania = -4.636f;
+bool recorridoAr1 = true;
+bool recorridoAr2 = false;
+bool recorridoAr3 = false;
+float rotarania = 90.0;
 
 int main()
 {
@@ -177,6 +204,9 @@ int main()
     Model vela2((char*)"Models/casa/2DOCUARTO/vela.obj");
     Model sillon2((char*)"Models/casa/2DOCUARTO/sillon.obj");
     Model rueda((char*)"Models/reproductor/rueda.obj");
+    Model finn((char*)"Models/Finn/finn.obj");
+    Model marceline((char*)"Models/Marceline/marceline.obj");
+    Model arania((char*)"Models/arania/arania.obj");
 
 
     GLuint texture;
@@ -220,6 +250,11 @@ int main()
         // Check and call events
         glfwPollEvents();
         DoMovement();
+        animacionBajo();
+        animacionPuerta();
+        animacionReproductor();
+        animacionMarceline();
+        animacionArania();
 
         // Clear the colorbuffer
         glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
@@ -250,43 +285,19 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         puerta.Draw(shader);
 
-        if (animPuerta) {
-            if (sentidoPuerta) {//Se tiene que abrir la puerta
-                if (abrePuerta < 80.0) {
-                    abrePuerta += 0.5;
-                }
-                if (abrePuerta >= 80.0) {
-                    sentidoPuerta = false;
-                    animPuerta = false;
-                }
-            }
-            else { //Se tiene que cerrar la puerta
-                if (abrePuerta > 0.0) {
-                    abrePuerta -= 0.5;
-                }
-                if (abrePuerta <= 0.0) {
-                    sentidoPuerta = true;
-                    animPuerta = false;
-                }
-            }
-        }
-
-
 
         //Alfombra1
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(13.824f, 6.283f, -5.119f));
         model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
-        model = glm::scale(model, glm::vec3(0.313f, 0.313f, 0.265f));
+        model = glm::scale(model, glm::vec3(0.31f, 0.313f, 0.265f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         alfombra1.Draw(shader);
 
         //Alfombra 2
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(11.515f, 6.283f, -5.838f));
-        model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
-        model = glm::scale(model, glm::vec3(0.431f, 0.431f, 0.44f));
-        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(-1.051f, 6.358f, -5.63f));
+        model = glm::scale(model, glm::vec3(0.385f, 1.0f, 0.5f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         alfombra2.Draw(shader);
 
@@ -295,8 +306,18 @@ int main()
         model = glm::translate(model, glm::vec3(14.282f, 6.192f, -5.717f));
         model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
         model = glm::scale(model, glm::vec3(0.181f, 0.181f, 0.181f));
+        model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         lampara.Draw(shader);
+
+
+        //Arania
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(posxarania, posyarania, poszarania));
+        model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+        model = glm::rotate(model, glm::radians(rotarania), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        arania.Draw(shader);
 
         //cama
         model = glm::mat4(1);
@@ -318,8 +339,7 @@ int main()
 
         //rueda
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(1.51f, 6.83f, -7.141f));
-        //model = glm::translate(model, glm::vec3(-12.7f, 0.06f, 0.0f));
+        model = glm::translate(model, glm::vec3(1.51f, 6.83f, -7.141f));      
         model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         model = glm::rotate(model, glm::radians(-30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
         model = glm::rotate(model, glm::radians(rotacionRueda), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -329,47 +349,21 @@ int main()
 
         //rueda2
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(1.63f, 6.83f, -7.141f));
-        //model = glm::translate(model, glm::vec3(-12.7f, 0.06f, 0.0f));
+        model = glm::translate(model, glm::vec3(1.63f, 6.83f, -7.141f));        
         model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         model = glm::rotate(model, glm::radians(-30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
         model = glm::rotate(model, glm::radians(rotacionRueda), glm::vec3(0.0f, 1.0f, 0.0f));
         model = glm::scale(model, glm::vec3(0.195f, 0.195f, 0.195f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        rueda.Draw(shader);
-
-        if(animRueda) {
-            rotacionRueda = float(glfwGetTime() * 35.0f);
-        }
-        else {
-            rotacionRueda = rotacionRueda;
-        }
+        rueda.Draw(shader);        
 
         //bajo
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(0.026f, posicionBajo, -7.291f));
-        //model = glm::translate(model, glm::vec3(-12.7f, 0.07f, 0.0f));
+        model = glm::translate(model, glm::vec3(0.026f, posicionBajo, -7.291f));        
         model = glm::scale(model, glm::vec3(0.083f, 0.083f, 0.083f));
         model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        bajo.Draw(shader);
-        //6.283
-        //animacion bajo
-        
-        if (animBajo) {
-            if (posicionBajo >= 6.5) {
-                sentido = false;
-            }
-            if (posicionBajo < 6.353) {
-                sentido = true;
-            }
-            if (sentido) {
-                posicionBajo += 0.0005f;
-            }
-            else
-                posicionBajo -= 0.0005f;
-
-        }
+        bajo.Draw(shader);        
 
 
         //sillon
@@ -384,7 +378,7 @@ int main()
 
         //tele
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(11.904f, 6.223f, -6.424f));
+        model = glm::translate(model, glm::vec3(11.904f, 6.223f, -6.084f));
         model = glm::translate(model, glm::vec3(-12.7f, 0.075f, 0.0f));
         model = glm::scale(model, glm::vec3(0.233f, 0.233f, 0.233f));
         model = glm::rotate(model, glm::radians(-128.43f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -402,24 +396,21 @@ int main()
         //escalera
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(-3.221f, 1.267f, -1.209f));
-        model = glm::scale(model, glm::vec3(0.39f, 0.358f, 0.39f));
-        //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.39f, 0.358f, 0.39f));    
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         escalera.Draw(shader);
 
         //vela
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(0.0f, 2.841f, -10.636f));
-        model = glm::scale(model, glm::vec3(0.115f, 0.115f, 0.115f));
-        //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.115f, 0.115f, 0.115f));        
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         vela.Draw(shader);
 
         //vela2
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(1.244f, 2.841f, -10.636f));
-        model = glm::scale(model, glm::vec3(0.115f, 0.115f, 0.115f));
-        //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.115f, 0.115f, 0.115f));        
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         vela2.Draw(shader);
 
@@ -436,9 +427,23 @@ int main()
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(0.0f, -0.276f, -7.475f));
         model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
-        //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         lampara_2.Draw(shader);
+
+        //finn
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(2.12f, 1.327f, -3.28f));
+        model = glm::scale(model, glm::vec3(1.2f, 1.2f, 1.2f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        finn.Draw(shader);
+
+        //Marceline
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(posxmarceline, posymarceline, poszmarceline));
+        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        model = glm::rotate(model, glm::radians(rotmarceline), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        marceline.Draw(shader);
 
 
         glBindVertexArray(0);
@@ -498,6 +503,127 @@ void DoMovement()
 
 }
 
+void animacionBajo() {
+    if (animBajo) {
+        if (posicionBajo >= 6.5) {
+            sentido = false;
+        }
+        if (posicionBajo < 6.353) {
+            sentido = true;
+        }
+        if (sentido) {
+            posicionBajo += 0.0005f;
+        }
+        else
+            posicionBajo -= 0.0005f;
+
+    }
+}
+
+void animacionPuerta() {
+    if (animPuerta) {
+        if (sentidoPuerta) {//Se tiene que abrir la puerta
+            if (abrePuerta < 80.0) {
+                abrePuerta += 0.5;
+            }
+            if (abrePuerta >= 80.0) {
+                sentidoPuerta = false;
+                animPuerta = false;
+            }
+        }
+        else { //Se tiene que cerrar la puerta
+            if (abrePuerta > 0.0) {
+                abrePuerta -= 0.5;
+            }
+            if (abrePuerta <= 0.0) {
+                sentidoPuerta = true;
+                animPuerta = false;
+            }
+        }
+    }
+}
+
+void animacionReproductor() {
+    if (animRueda) {
+        rotacionRueda += 0.45f;
+    }
+    else {
+        rotacionRueda = rotacionRueda;
+    }
+}
+
+void animacionMarceline() {
+    if (animMarceline) {
+        if (recorridoMar1) {
+            rotmarceline = -90.0f;
+            posymarceline += 0.031f;
+            poszmarceline += 0.1f;
+            if (posymarceline > 4.5 && poszmarceline > -1.3) {
+                recorridoMar1 = false;
+                recorridoMar2 = true;
+            }
+        }
+        if (recorridoMar2) {
+            rotmarceline = 180.0f;
+            posxmarceline -= 0.1f;
+            posymarceline -= 0.021;
+            if (posxmarceline < -5.77 && posymarceline < 1.3) {
+                recorridoMar2 = false;
+                recorridoMar3 = true;
+            }
+        }
+        if (recorridoMar3) {
+            rotmarceline = 90.0f;
+            posymarceline += 0.034;
+            poszmarceline -= 0.1;
+            if (posymarceline > 5.06 && poszmarceline < -12.164) {
+                recorridoMar3 = false;
+                recorridoMar4 = true;
+            }
+        }
+        if (recorridoMar4) {
+            rotmarceline = 0.0f;
+            posxmarceline += 0.1f;
+            posymarceline -= 0.031;
+            if (posxmarceline > 7.9 && posymarceline < 0.78) {
+                recorridoMar4 = false;
+                recorridoMar1 = true;
+            }
+        }
+    }
+}
+
+void animacionArania() {
+    if (animArania) {
+        if (recorridoAr1) {
+            float v = 8.0f;
+            float rad = 30.0 / 57.3;
+            poszarania -= 0.008f;
+            posyarania = 12 + (tan(rad) * poszarania - (9.8 / (2 * v * v * cos(rad) * cos(rad))) * poszarania * poszarania);            
+            if (posyarania < 6.38) {
+                recorridoAr1 = false;
+                recorridoAr2 = true;
+            }
+        }
+        if (recorridoAr2) {
+            rotarania = 0;
+            posxarania += 0.001;
+            if (posxarania > 1.7) {
+                recorridoAr2 = false;
+                recorridoAr3 = true;
+            }
+        }
+        if (recorridoAr3) {
+            rotarania = 90;
+            poszarania -= 0.001f;            
+            if (poszarania < -5.3) {               
+                recorridoAr3 = false;
+            }
+        }
+    }
+}
+
+
 // Is called whenever a key is pressed/released via GLFW
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
@@ -510,6 +636,13 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
     if (keys[GLFW_KEY_P]) {
         animPuerta = !animPuerta;
     }
+    if (keys[GLFW_KEY_M]) {
+        animMarceline = !animMarceline;
+    }
+    if (keys[GLFW_KEY_T]) {
+        animArania = !animArania;
+    }
+
     if (GLFW_KEY_ESCAPE == key && GLFW_PRESS == action)
     {
         glfwSetWindowShouldClose(window, GL_TRUE);
