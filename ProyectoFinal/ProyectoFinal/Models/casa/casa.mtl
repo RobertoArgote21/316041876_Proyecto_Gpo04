@@ -3,7 +3,28 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
+map_Kd pared_izq.png
+Ni 1.00
+newmtl casa:lambert2SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
 map_Kd techo.png
+Ni 1.00
+newmtl casa:lambert5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd pasillo_escalera.png
+Ni 1.00
+newmtl casa:lambert6SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd pasillo_escalera_arriba.png
 Ni 1.00
 newmtl casa:lambert9SG
 illum 4
@@ -299,13 +320,6 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd triangulo.png
 Ni 1.00
-newmtl casa:lambert32SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd pared_izq.png
-Ni 1.00
 newmtl casa:pasted__lambert13SG
 illum 4
 Kd 0.00 0.00 0.00
@@ -319,18 +333,4 @@ Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd moradocasa.png
-Ni 1.00
-newmtl lambert5SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd pasillo_escalera.png
-Ni 1.00
-newmtl lambert6SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd pasillo_escalera_arriba.png
 Ni 1.00
