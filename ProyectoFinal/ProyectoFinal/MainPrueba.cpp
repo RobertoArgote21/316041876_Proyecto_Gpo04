@@ -330,7 +330,7 @@ int main()
         
         //reproductor
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(14.26f, 6.283f, -6.948f));
+        model = glm::translate(model, glm::vec3(14.26f, 6.26f, -6.948f));
         model = glm::translate(model, glm::vec3(-12.7f, 0.06f, 0.0f));
         model = glm::scale(model, glm::vec3(0.186f, 0.186f, 0.186f));
         model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -339,7 +339,7 @@ int main()
 
         //rueda
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(1.51f, 6.83f, -7.141f));      
+        model = glm::translate(model, glm::vec3(1.51f, 6.805f, -7.141f));      
         model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         model = glm::rotate(model, glm::radians(-30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
         model = glm::rotate(model, glm::radians(rotacionRueda), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -349,7 +349,7 @@ int main()
 
         //rueda2
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(1.63f, 6.83f, -7.141f));        
+        model = glm::translate(model, glm::vec3(1.63f, 6.805f, -7.141f));        
         model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         model = glm::rotate(model, glm::radians(-30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
         model = glm::rotate(model, glm::radians(rotacionRueda), glm::vec3(0.0f, 1.0f, 0.0f));
